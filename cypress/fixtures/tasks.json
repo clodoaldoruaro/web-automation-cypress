@@ -1,0 +1,12 @@
+{
+    "duplicada": {
+        "name": "Tarefa Duplicada",
+        "is_done": false
+    },
+    "comprar": {
+        "name": "Comprar Pão",
+        "is_done": false
+    }
+
+
+}

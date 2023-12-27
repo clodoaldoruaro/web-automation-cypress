@@ -2,25 +2,30 @@
 
 describe('tarefas', () => {
 
+    let massas;
+
+    before(()=>{
+        cy.fixture('tasks').then(t =>{
+            massas = t
+        })
+    })
+
     context('cadastro', ()=>{
 
         it('Cadastrar nova tarefa', () => {
         
-            const taskName = 'Comprar Pão'
+            const task = massas.comprar
     
-            cy.removerTarefa(taskName)
-            cy.criarTarefa(taskName)
+            cy.removerTarefa(task.name)
+            cy.criarTarefa(task.name)
     
-            cy.contains('main div p', taskName)
+            cy.contains('main div p', task.name)
                 .should('be.visible')
         })
     
         it('Validar cadastro de tarefa duplicado', () =>{
     
-            const task = {
-                name: 'Tarefa duplicada',
-                is_done: false
-            }
+            const task = massas.duplicada
     
             cy.removerTarefa(task.name)
             cy.criarTarefaAPI(task)
@@ -41,10 +46,7 @@ describe('tarefas', () => {
 
         it('Concluir tarefa', ()=>{
 
-            const task = {
-                name: 'Comprar Pão',
-                is_done: false
-            }
+            const task = massas.comprar
 
             cy.visit('/')
 
@@ -62,10 +64,7 @@ describe('tarefas', () => {
 
         it('Excluir tarefa', ()=>{
 
-            const task = {
-                name: 'Comprar Pão',
-                is_done: false
-            }
+            const task = massas.comprar
 
             cy.visit('/')
 
