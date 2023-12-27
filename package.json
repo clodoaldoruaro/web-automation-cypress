@@ -1,0 +1,11 @@
+{
+  "name": "web-automation-cypress",
+  "version": "1.0.0",
+  "description": "Testes automatizados E2E Cypress",
+  "main": "index.js",
+  "author": "Clodoaldo Ruaro",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "12.2.0"
+  }
+}
